@@ -1,0 +1,36 @@
+<div>
+  <table class="table table-striped" style="margin-top: 5rem">
+    <thead>
+    <tr>
+      <th>Image</th>
+      <th>Category</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products" (click)="openDetail(product.name)">
+        <td><img class="card-img-top" src="../../assets/{{product.img}}" style="height: 40px; width: auto"></td>
+        <td>{{product.name}}</td>
+        <td>
+          <button  (click)="addOne(product)"><i class="fas fa-plus" style="color: forestgreen"></i></button>
+         <span style="display: inline-block; width: 40px; text-align: center">{{product.quantity}}</span>
+          <button  (click)="deleteOne(product)"><i class="fas fa-minus" style="color: red"></i></button>
+        </td>
+        <td>{{product.quantity * product.price | currency}}</td>
+        <td>
+          <button (click)="deleteProduct(product)">
+            <i class="fas fa-trash-alt" style="color: red"></i>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Total Price</b></td>
+        <td ></td>
+        <td></td>
+        <td><b>{{sum() | currency}}</b></td>
+        <td></td>
+    </tbody>
+  </table>
+</div>

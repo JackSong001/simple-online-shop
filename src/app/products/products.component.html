@@ -1,0 +1,33 @@
+<div>
+  <div style="text-align: center;">
+    <h2 class="display-2">Fruits</h2>
+
+    <div class="searchBar">
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" (click)="openDetail(p.name)">Search</button>
+      </form>
+    </div>
+
+
+  </div>
+
+  <div class="viewContent">
+    <ul class="item-list">
+      <li  *ngFor = "let p of products">
+        <div class="card" style="width: 16rem;">
+          <div style="margin: auto;">
+            <img class="card-img-top" src="../../assets/{{p.img}}" alt="this is {{p.name}}" style="height: 140px; width: auto">
+          </div>
+          <div class="card-body">
+            <p class="card-text">Name: {{p.name}}</p>
+            <p class="card-text">Price: {{p.price | currency}}/lb</p>
+          </div>
+          <button class="btn btn-info" (click)="openDetail(p.name)">{{p.name}} Detail</button>
+          <button class="btn btn-outline-danger" (click)="addCart(p)">Add to the Cart</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>
